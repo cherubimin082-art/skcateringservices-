@@ -570,17 +570,53 @@ header.scrolled {
 
 /* Full-bleed photo hero with centered ornamented text (inner pages) */
 .hero-photo-center {
-  background-color: #0c2e16;
   background-image:
-    linear-gradient(rgba(8, 36, 17, 0.55), rgba(8, 36, 17, 0.88)),
+    linear-gradient(rgba(8, 36, 17, 0.25), rgba(8, 36, 17, 0.55)),
     url("../images/about-hero-strip.jpg");
-  background-size: cover, auto 60%;
-  background-position: center, center bottom;
-  background-repeat: no-repeat, no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 90px 20px !important;
 }
 .hero-photo-center .hero-ornament {
   justify-content: center;
+}
+.hero-menu {
+  background-image:
+    linear-gradient(rgba(8, 36, 17, 0.25), rgba(8, 36, 17, 0.55)),
+    url("../images/menu-hero-strip.jpg");
+}
+.hero-gallery {
+  background-image:
+    linear-gradient(rgba(8, 36, 17, 0.25), rgba(8, 36, 17, 0.55)),
+    url("../images/gallery-hero.jpg");
+}
+
+/* Illustrated green hero (Contact page) */
+.hero-contact {
+  background-image:
+    url("../images/contact-hero-left.png"),
+    url("../images/contact-hero-right.png"),
+    radial-gradient(circle at 22% 20%, rgba(255, 255, 255, 0.14), transparent 45%),
+    linear-gradient(135deg, #2fae1f 0%, #15811a 45%, #0b5f12 75%, #063f09 100%);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: left bottom, right bottom, center, center;
+  background-size: 300px auto, 300px auto, cover, cover;
+  padding: 90px 20px !important;
+}
+.hero-contact h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+}
+
+@media (max-width: 860px) {
+  .hero-contact {
+    background-size: 160px auto, 160px auto, cover, cover;
+  }
+}
+.hero-photo-center h1,
+.hero-photo-center p {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
 }
 .hero-photo-center h1 {
   font-size: 2.6rem;
