@@ -568,6 +568,26 @@ header.scrolled {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Full-bleed photo hero with centered ornamented text (inner pages) */
+.hero-photo-center {
+  background-image:
+    radial-gradient(ellipse at center, rgba(8, 36, 17, 0.94) 0%, rgba(8, 36, 17, 0.88) 42%, rgba(8, 36, 17, 0.55) 68%, rgba(8, 36, 17, 0.28) 100%),
+    url("../images/about-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 90px 20px !important;
+}
+.hero-photo-center .hero-ornament {
+  justify-content: center;
+}
+.hero-photo-center h1 {
+  font-size: 2.6rem;
+}
+.hero-photo-center .hero-accent-inline {
+  color: var(--color-accent);
+}
+
 /* Full-bleed photo hero (centered layout) */
 .hero-photo {
   background-image:
