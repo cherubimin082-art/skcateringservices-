@@ -132,7 +132,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Button ripple effect
+  // Button ripple effect + leaf-burst
+  var burstEmojis = ["🍃", "🌱", "🌿"];
   document.querySelectorAll(".btn").forEach(function (btn) {
     btn.addEventListener("click", function (e) {
       var rect = btn.getBoundingClientRect();
@@ -146,6 +147,65 @@ document.addEventListener("DOMContentLoaded", function () {
       window.setTimeout(function () {
         ripple.remove();
       }, 650);
+
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        for (var i = 0; i < 6; i++) {
+          var leaf = document.createElement("span");
+          leaf.className = "btn-leaf-burst";
+          leaf.textContent = burstEmojis[i % burstEmojis.length];
+          leaf.style.left = e.clientX + "px";
+          leaf.style.top = e.clientY + "px";
+          var angle = Math.random() * Math.PI * 2;
+          var dist = 40 + Math.random() * 50;
+          leaf.style.setProperty("--dx", Math.cos(angle) * dist + "px");
+          leaf.style.setProperty("--dy", Math.sin(angle) * dist + "px");
+          leaf.style.setProperty("--rot", (Math.random() * 360 - 180) + "deg");
+          document.body.appendChild(leaf);
+          (function (el) {
+            window.setTimeout(function () { el.remove(); }, 950);
+          })(leaf);
+        }
+      }
     });
   });
+
+  // 3D tilt-on-hover for cards
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && window.matchMedia("(hover: hover)").matches) {
+    document.querySelectorAll(".card, .testimonial").forEach(function (card) {
+      card.addEventListener("mousemove", function (e) {
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = "translateY(-8px) rotateX(" + (y * -8) + "deg) rotateY(" + (x * 8) + "deg)";
+      });
+      card.addEventListener("mouseleave", function () {
+        card.style.transform = "";
+      });
+    });
+  }
+
+  // Auto-fading testimonial carousel (About page)
+  var testimonials = document.querySelectorAll(".testimonial");
+  if (testimonials.length > 1) {
+    var activeIndex = 0;
+    window.setInterval(function () {
+      testimonials[activeIndex].style.transition = "opacity 0.6s ease";
+      testimonials[activeIndex].style.opacity = "0.35";
+      activeIndex = (activeIndex + 1) % testimonials.length;
+      testimonials[activeIndex].style.opacity = "1";
+      testimonials[activeIndex].style.transform = "translateY(-10px) scale(1.02)";
+      window.setTimeout(function () {
+        testimonials.forEach(function (t) { t.style.opacity = "1"; });
+      }, 700);
+    }, 3200);
+  }
+
+  // Occasional attention wiggle on the WhatsApp button
+  var fab = document.querySelector(".whatsapp-fab");
+  if (fab && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    window.setInterval(function () {
+      fab.classList.add("wiggle");
+      window.setTimeout(function () { fab.classList.remove("wiggle"); }, 700);
+    }, 9000);
+  }
 });
