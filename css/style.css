@@ -90,16 +90,15 @@ header {
 .logo-badge {
   position: relative;
   display: inline-flex;
-  border-radius: 12px;
+  border-radius: 50%;
   overflow: hidden;
-  border: 2px solid var(--color-primary-dark);
-  box-shadow: 0 3px 8px rgba(20, 90, 36, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
-  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 3px 8px rgba(20, 90, 36, 0.35);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .logo:hover .logo-badge {
-  border-color: var(--color-primary);
-  box-shadow: 0 5px 14px rgba(20, 90, 36, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 14px rgba(20, 90, 36, 0.45);
+  transform: scale(1.05);
 }
 
 .logo-badge::after {
@@ -118,8 +117,9 @@ header {
 }
 
 .logo img {
-  height: 44px;
-  width: auto;
+  height: 72px;
+  width: 72px;
+  object-fit: cover;
   display: block;
 }
 
