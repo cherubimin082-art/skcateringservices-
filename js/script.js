@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  var WHATSAPP_NUMBER = "919382292609";
+  var WHATSAPP_NUMBER = "919344349903";
 
   var form = document.getElementById("inquiry-form");
   if (form) {
