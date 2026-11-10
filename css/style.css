@@ -570,12 +570,13 @@ header.scrolled {
 
 /* Full-bleed photo hero with centered ornamented text (inner pages) */
 .hero-photo-center {
+  background-color: #0c2e16;
   background-image:
-    radial-gradient(ellipse at center, rgba(8, 36, 17, 0.94) 0%, rgba(8, 36, 17, 0.88) 42%, rgba(8, 36, 17, 0.55) 68%, rgba(8, 36, 17, 0.28) 100%),
-    url("../images/about-hero.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    linear-gradient(rgba(8, 36, 17, 0.55), rgba(8, 36, 17, 0.88)),
+    url("../images/about-hero-strip.jpg");
+  background-size: cover, auto 60%;
+  background-position: center, center bottom;
+  background-repeat: no-repeat, no-repeat;
   padding: 90px 20px !important;
 }
 .hero-photo-center .hero-ornament {
