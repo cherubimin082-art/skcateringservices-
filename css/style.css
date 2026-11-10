@@ -287,9 +287,6 @@ section {
 
 /* Showcase card (photo banner + split details) */
 .showcase {
-  background: #f6ede3;
-  border-radius: 20px;
-  padding: 14px;
   max-width: 980px;
   margin: 0 auto;
 }
