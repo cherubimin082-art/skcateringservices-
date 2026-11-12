@@ -220,23 +220,4 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
-
-  // Back-to-top button
-  var backToTop = document.createElement("button");
-  backToTop.className = "back-to-top";
-  backToTop.setAttribute("aria-label", "Back to top");
-  backToTop.innerHTML = "&#8593;";
-  document.body.appendChild(backToTop);
-
-  window.addEventListener(
-    "scroll",
-    function () {
-      backToTop.classList.toggle("visible", window.scrollY > 500);
-    },
-    { passive: true }
-  );
-
-  backToTop.addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
 });

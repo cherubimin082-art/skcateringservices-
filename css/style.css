@@ -908,34 +908,6 @@ header.scrolled {
 }
 
 /* Floating WhatsApp quick-contact button */
-.back-to-top {
-  position: fixed;
-  left: 22px;
-  bottom: 22px;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: none;
-  background: var(--color-primary-dark);
-  color: #fff;
-  font-size: 1.2rem;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  z-index: 100;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(12px);
-  transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease, visibility 0.3s;
-}
-.back-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-.back-to-top:hover {
-  background: var(--color-primary);
-}
-
 .whatsapp-fab {
   position: fixed;
   right: 22px;
