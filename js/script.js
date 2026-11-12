@@ -208,4 +208,35 @@ document.addEventListener("DOMContentLoaded", function () {
       window.setTimeout(function () { fab.classList.remove("wiggle"); }, 700);
     }, 9000);
   }
+
+  // Fade images in smoothly as they finish loading
+  document.querySelectorAll("img").forEach(function (img) {
+    img.classList.add("img-fade");
+    if (img.complete) {
+      img.classList.add("img-loaded");
+    } else {
+      img.addEventListener("load", function () {
+        img.classList.add("img-loaded");
+      });
+    }
+  });
+
+  // Back-to-top button
+  var backToTop = document.createElement("button");
+  backToTop.className = "back-to-top";
+  backToTop.setAttribute("aria-label", "Back to top");
+  backToTop.innerHTML = "&#8593;";
+  document.body.appendChild(backToTop);
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      backToTop.classList.toggle("visible", window.scrollY > 500);
+    },
+    { passive: true }
+  );
+
+  backToTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 });
