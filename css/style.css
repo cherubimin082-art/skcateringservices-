@@ -108,6 +108,7 @@ header {
 .logo-badge {
   position: relative;
   display: inline-flex;
+  flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 3px 8px rgba(20, 90, 36, 0.35);
@@ -147,6 +148,7 @@ header {
 .logo img {
   height: 72px;
   width: 72px;
+  flex-shrink: 0;
   object-fit: cover;
   display: block;
 }
