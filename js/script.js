@@ -61,13 +61,26 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
-  // Scroll-reveal animation for sections, cards, etc.
+  // Scroll-reveal animation for sections, testimonials, etc.
   var revealTargets = document.querySelectorAll(
-    ".section-title, .card, .testimonial, .showcase, .about-content, .contact-wrap > div, .gallery-grid"
+    ".section-title, .testimonial, .showcase, .about-content, .contact-wrap > div, .gallery-grid"
   );
   revealTargets.forEach(function (el) {
     el.classList.add("reveal");
   });
+
+  // Card grids reveal with a staggered cascade instead of all at once
+  var staggerGrids = Array.prototype.filter.call(
+    document.querySelectorAll(".grid"),
+    function (el) {
+      return el.querySelector(".card");
+    }
+  );
+  staggerGrids.forEach(function (el) {
+    el.classList.add("reveal-stagger");
+  });
+
+  var allRevealTargets = Array.prototype.slice.call(revealTargets).concat(staggerGrids);
 
   if ("IntersectionObserver" in window) {
     var observer = new IntersectionObserver(
@@ -81,11 +94,11 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
     );
-    revealTargets.forEach(function (el) {
+    allRevealTargets.forEach(function (el) {
       observer.observe(el);
     });
   } else {
-    revealTargets.forEach(function (el) {
+    allRevealTargets.forEach(function (el) {
       el.classList.add("in-view");
     });
   }
